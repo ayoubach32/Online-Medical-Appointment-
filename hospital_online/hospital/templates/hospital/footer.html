@@ -1,0 +1,46 @@
+
+<style>
+    .page-footer {
+      background-color: #00aaff;
+      color: #fff;
+      box-shadow: 0 -5px 10px rgba(0, 0, 0, 0.1);
+    }
+  
+    .page-footer a {
+      color: #fff;
+      text-decoration: none;
+      transition: all 0.3s ease-in-out;
+      position: relative;
+    }
+  
+    .page-footer a:hover {
+      color: rgba(255, 255, 255, 0.7);
+    }
+  
+    .page-footer a::before {
+      content: "";
+      position: absolute;
+      bottom: -3px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background-color: #fff;
+      transform: scaleX(0);
+      transition: transform 0.3s ease-in-out;
+    }
+  
+    .page-footer a:hover::before {
+      transform: scaleX(1);
+    }
+  
+    .footer-copyright {
+      font-size: 0.9rem;
+    }
+  </style>
+<footer class="page-footer font-small indigo fixed-bottom">
+    
+    <div class="footer-copyright text-center py-3">&copy; 2024 Copyright:
+        <a href="http://localhost:8000">ON-MED</a>
+        <a class="ml-3" href="{% url 'about' %}" > About us </a>
+    </div>
+</footer>

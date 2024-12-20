@@ -1,0 +1,117 @@
+{% extends 'hospital/base.html' %}
+
+{% load static %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Online Medical Appointment Scheduling</title>
+    
+</head>
+<style>
+    .about-container {
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    margin: 20px auto;
+    max-width: 900px;
+}
+
+.about-container h1, .about-container h2 {
+    font-family: 'Rockwell', sans-serif;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.about-container p {
+    font-family: 'Arial', sans-serif;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.about-container ul {
+    font-family: 'Arial', sans-serif;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.about-container ul li {
+    margin-bottom: 10px;
+}
+
+.about-container p strong, .about-container ul li strong {
+    color: #00aaff;
+}
+
+@media (max-width: 767px) {
+    .about-container {
+        padding: 20px;
+    }
+
+    .about-container h1 {
+        font-size: 1.8rem;
+    }
+
+    .about-container h2 {
+        font-size: 1.5rem;
+    }
+}
+
+</style>
+<body>
+    <div class="about-container">
+        <h1>Welcome to ON-MED – Revolutionizing Healthcare Scheduling</h1>
+        
+        <p>At ON-MED , we are committed to transforming the way patients and healthcare providers manage medical appointments. Our mission is to bridge the gap between patients and healthcare services through innovative, user-friendly technology, ensuring that healthcare is accessible, efficient, and stress-free.</p>
+        
+        <h2>Our Vision</h2>
+        <p>We envision a world where healthcare is easily accessible to everyone, where patients can book appointments with ease, and where healthcare providers can manage their schedules effortlessly. Our goal is to enhance the healthcare experience for both patients and providers by leveraging the power of technology.</p>
+        
+        <h2>Our Mission</h2>
+        <p>Our mission is to provide a comprehensive and intuitive platform that simplifies the appointment scheduling process. By doing so, we aim to:</p>
+        <ul>
+            <li><strong>Empower Patients:</strong> Give patients the freedom to book appointments at their convenience, manage their healthcare needs efficiently, and receive timely reminders.</li>
+            <li><strong>Support Healthcare Providers:</strong> Offer a robust scheduling system that reduces administrative workload, minimizes no-shows, and allows providers to focus on delivering exceptional care.</li>
+        </ul>
+        
+        <h2>What We Offer</h2>
+        <ul>
+            <li><strong>Seamless Appointment Booking:</strong> Our platform allows patients to book appointments with just a few clicks. Browse through available slots, choose your preferred time, and confirm your appointment instantly.</li>
+            <li><strong>Real-Time Availability:</strong> See real-time availability of doctors and healthcare professionals, ensuring you get the earliest and most convenient appointment times.</li>
+            <li><strong>Automated Reminders:</strong> Never miss an appointment again with our automated reminders via email and SMS, designed to keep you on track.</li>
+            <li><strong>Secure and Confidential:</strong> We prioritize your privacy and security, ensuring that all patient information and appointment details are encrypted and securely stored.</li>
+            <li><strong>User-Friendly Interface:</strong> Our platform is designed with the user in mind, featuring an intuitive interface that is easy to navigate for both patients and administrative staff.</li>
+            <li><strong>Multi-Device Accessibility:</strong> Access our platform from any device, whether it’s a desktop, tablet, or smartphone, providing flexibility and convenience at your fingertips.</li>
+            <li><strong>Comprehensive Dashboard:</strong> Healthcare providers can manage their schedules, view patient appointments, and track appointment history all in one place.</li>
+        </ul>
+        
+        <h2>Our Story</h2>
+        <p>Founded by a team of healthcare and technology professionals, ON-MED was born out of the need for a more efficient and patient-centric appointment scheduling solution. We recognized the challenges faced by both patients and healthcare providers in managing appointments and decided to create a platform that addresses these issues head-on.</p>
+        
+        <h2>Our Team</h2>
+        <p>Our dedicated team comprises experienced professionals from the healthcare, technology, and customer service sectors. We are passionate about improving healthcare access and committed to delivering the best possible experience to our users.</p>
+        
+        <h2>Why Choose Us?</h2>
+        <ul>
+            <li><strong>Experience:</strong> We have years of experience in the healthcare and technology industries, allowing us to understand and address the unique needs of our users.</li>
+            <li><strong>Innovation:</strong> We continuously innovate and improve our platform to ensure we provide the most effective and up-to-date solutions.</li>
+            <li><strong>Customer Support:</strong> Our customer support team is always ready to assist you with any questions or issues you may have, ensuring a smooth and hassle-free experience.</li>
+        </ul>
+        
+        <h2>Join Us in Transforming Healthcare</h2>
+        <p>At ON-MED, we believe that everyone deserves easy access to healthcare. Join us on our journey to revolutionize healthcare scheduling and experience the convenience, efficiency, and peace of mind that our platform provides.</p>
+        
+        <p>Thank you for choosing ON-MED – your trusted partner in healthcare appointment management.</p>
+        
+        <p>For more information or to get started, contact us at [contact information] or visit [website URL].</p>
+    </div>
+</body>
+</html>
+{% endblock content %}

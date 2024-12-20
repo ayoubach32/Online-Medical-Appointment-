@@ -1,0 +1,187 @@
+
+
+{% load static %}
+
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Dashboard</title>
+    <link rel="stylesheet" href="{% static 'css/patient_dashboard.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f9;
+        margin: 0;
+        padding: 0;
+    }
+
+    .dashboard-container {
+        display: flex;
+    }
+
+    .sidebar {
+        background-color: #2c3e50;
+        width: 250px;
+        height: 100vh;
+        padding: 20px;
+        box-sizing: border-box;
+        position: fixed;
+    }
+
+    .sidebar-header {
+        color: #ecf0f1;
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    .sidebar-menu {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    .sidebar-menu li {
+        margin: 15px 0;
+    }
+
+    .sidebar-menu li a {
+        color: #ecf0f1;
+        text-decoration: none;
+        display: block;
+        padding: 10px 15px;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+    }
+
+    .sidebar-menu li a:hover {
+        background-color: #34495e;
+    }
+
+    .main-content {
+        margin-left: 250px;
+        padding: 20px;
+        box-sizing: border-box;
+        width: calc(100% - 250px);
+    }
+
+    .header {
+        background-color: #00aaff;
+        color: #fff;
+        padding: 20px;
+        border-radius: 5px;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    .cards {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 20px;
+    }
+
+    .card {
+        background-color: #fff;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        width: 23%;
+        text-align: center;
+    }
+
+    .card h3 {
+        margin-bottom: 10px;
+        font-size: 1.2em;
+        color: #00aaff;
+    }
+
+    .card p {
+        font-size: 2em;
+        margin: 0;
+    }
+
+    .take-appointment-card a {
+        text-decoration: none;
+        color: white;
+        display: block;
+        padding: 20px;
+        background-color: #f39c12;
+        font-size: 18px;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+    }
+
+    .take-appointment-card a:hover {
+        background-color: #e67e22;
+    }
+
+    @media (max-width: 768px) {
+        .cards {
+            flex-direction: column;
+        }
+
+        .card {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        .main-content {
+            margin-left: 0;
+            width: 100%;
+            padding: 10px;
+        }
+
+        .sidebar {
+            width: 100%;
+            height: auto;
+            position: relative;
+        }
+    }
+</style>
+<body>
+    <div class="dashboard-container">
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <h3>Patient Dashboard</h3>
+            </div>
+            <ul class="sidebar-menu">
+                <li><a href="#">Dashboard</a></li>
+                <li><a href="#">My Appointments</a></li>
+                <li><a href="#">Medical Records</a></li>
+                <li><a href="#">Profile</a></li>
+                <li><a href="#">Support</a></li>
+                <li><a href="{% url 'index' %}">Go home</a></li>
+            </ul>
+        </nav>
+        <div class="main-content">
+            <header class="header">
+                <h2>Welcome, [Patient Name]</h2>
+            </header>
+
+            <section class="cards">
+                <div class="card">
+                    <h3>Upcoming Appointments</h3>
+                    <p>3</p>
+                </div>
+                <div class="card">
+                    <h3>Medical Records</h3>
+                    <p>5</p>
+                </div>
+                <div class="card">
+                    <h3>Messages</h3>
+                    <p>2</p>
+                </div>
+                <div class="card take-appointment-card">
+                    <a href="{% url 'appointment' %}"><i class="fas fa-calendar-plus"></i> Take Appointment</a>
+                </div>
+            </section>
+        </div>
+    </div>
+</body>
+</html>
+
+{% endblock content %}

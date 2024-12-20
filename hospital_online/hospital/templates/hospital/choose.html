@@ -1,0 +1,110 @@
+
+
+{% load static %}
+
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Medical Appointment Scheduling</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #f0f0f0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        header {
+            background-color: #00aaff;
+            color: white;
+            padding: 20px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-around;
+            width: 60%;
+            margin-top: 50px;
+        }
+
+        .cards-container {
+        display: flex;
+        justify-content: space-around;
+        margin-top: 30px;
+        } 
+
+        .card {
+        background: white;
+        border-radius: 15px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        text-align: center;
+        padding: 20px;
+        width: 45%;
+        transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+        }
+
+        .image {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        margin-bottom: 20px;
+        }
+        .button {
+            background-color: #00aaff;
+            border: none;
+            border-radius: 25px;
+            color: white;
+            cursor: pointer;
+            padding: 10px 20px;
+            font-size: 16px;
+            margin-top: 20px;
+            transition: background-color 0.3s;
+        }
+
+        .button:hover {
+            background-color: #0088cc;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Online Medical Appointment Scheduling</h1>
+    </header>
+    
+
+        <div class="container cards-container">
+            <div class="card">
+                <img src="{% static 'images/patient.png' %}" alt="Patient" class="image">
+                <h2>Patient</h2>
+                <p>Schedule an appointment, view medical history, and manage your health.</p>
+                <a href="{% url 'signupPatient' %}">
+                    <button class="button">Sign up as Patient</button>
+                </a>
+            </div>
+            <div class="card">
+                <img src="{% static 'images/admin.png' %}" alt="Admin" class="image">
+                <h2>Admin</h2>
+                <p>Manage appointments, view patient records, and oversee operations.</p>
+                <a href="{% url 'signupAdmin' %}">
+                    <button class="button">Sign up as Admin</button>
+                </a>
+            </div>
+        </div>
+</body>
+</html>
+
+
+{% endblock content %}
