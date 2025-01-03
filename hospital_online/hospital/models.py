@@ -9,7 +9,7 @@ class Profile(models.Model):
     last_name = models.CharField(max_length=30)
     address = models.CharField(max_length=100)
     city = models.CharField(max_length=50)
-    date_of_birth = models.DateField()
+    date_of_birth = models.DateField( null=True)
 
     def __str__(self):
         return self.user.username

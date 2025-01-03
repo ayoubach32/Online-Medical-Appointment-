@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 from django import forms
 from .models import Profile , Doctor , Appointment
 
-
+#Admin registration from ##########
 class CustomUserCreationForm(UserCreationForm):
     email = forms.EmailField(required=True)
 
@@ -20,7 +20,7 @@ class CustomUserCreationForm(UserCreationForm):
         return user
     
 
-
+##Patient registration form ###################
 
 class PatientSignupForm(UserCreationForm):
         email = forms.EmailField(required=True)
@@ -37,16 +37,21 @@ class PatientSignupForm(UserCreationForm):
             
         def save(self, commit=True):
             user = super().save(commit=False)
-            user.email = self.cleaned_data["email"]
+            user.username = self.cleaned_data["username"]
             if commit:
+
                 user.save()
-                Profile.objects.create(
+                profile , created = Profile.objects.get_or_create(
                 user=user,
-                first_name=self.cleaned_data["first_name"],
-                last_name=self.cleaned_data["last_name"],
-                address=self.cleaned_data["address"],
-                city=self.cleaned_data["city"],
-                date_of_birth=self.cleaned_data["date_of_birth"],
+                defaults={
+                 'email' : self.cleaned_data['email'],
+                 'first_name':self.cleaned_data["first_name"],
+                 'last_name':self.cleaned_data["last_name"],
+                 'address':self.cleaned_data["address"],
+                 'city':self.cleaned_data["city"],
+                 'date_of_birth':self.cleaned_data["date_of_birth"],
+                }
+                
             )
             return user
 

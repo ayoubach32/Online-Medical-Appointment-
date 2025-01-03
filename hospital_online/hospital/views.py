@@ -5,6 +5,10 @@ from .forms import CustomUserCreationForm , PatientSignupForm , AppointmentForm
 from django.contrib import messages 
 from django.contrib.auth import authenticate , login , logout
 from .models import Appointment, Profile
+from django.db.models.signals import post_save
+from django.dispatch import receiver
+from django.contrib.auth.models import User
+
 # Create your views here.
 
 class Index (View):
@@ -31,9 +35,6 @@ class Contact (View):
      def get(self , request , *args, **kwargs):
           return render(request , 'hospital/contact.html')
     
-#class Appointment (View):
-    #def get (self , request , *args, **kwargs ):
-        #return render(request ,'hospital/appointment.html' )
 
 def LoginAdmin (request ):
      form = UserCreationForm()
@@ -104,8 +105,8 @@ def patient_signup(request):
     return render(request, 'hospital/signupPatient.html', context)
 
 
-
-
+from django.contrib.auth.decorators import login_required
+@login_required(login_url='login')
 def appointment(request):
     if request.method == 'POST':
         form = AppointmentForm(request.POST)
@@ -133,11 +134,12 @@ def appointment_success(request):
     return render(request, 'hospital/appointment_success.html')
 
 
-#@receiver(post_save, sender=User)
+@receiver(post_save, sender=User)
 def create_profile(sender, instance, created, **kwargs):
     if created:
         Profile.objects.create(user=instance)
 
-#@receiver(post_save, sender=User)
+
+@receiver(post_save, sender=User)
 def save_profile(sender, instance, **kwargs):
     instance.profile.save()
